@@ -52,5 +52,6 @@ This project use [TUI-Editor](http://ui.toast.com/tui-editor//) GFM Markdown Wys
 
 ## To Do
 
+- [ ] Add usage instructions
 - [ ] Add configurable options
 - [ ] Add configurable label for fields
