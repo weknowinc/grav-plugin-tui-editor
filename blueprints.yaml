@@ -1,0 +1,27 @@
+name: TuiEditor
+version: 0.1.0
+description: tui-editor
+icon: plug
+author:
+  name: Jesus Manuel Olivas
+  email: jesus.olivas@gmail.com
+homepage: https://github.com/weknowinc/grav-plugin-tui-editor
+#demo: http://demo.yoursite.com
+keywords: grav, plugin, editor, markdown, wysiwyg
+bugs: https://github.com/weknowinc/grav-plugin-tui-editor/issues
+docs: https://github.com/weknowinc/grav-plugin-tui-editor/blob/master/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

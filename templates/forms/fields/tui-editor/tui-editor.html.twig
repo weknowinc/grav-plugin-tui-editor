@@ -1,0 +1,32 @@
+{% block label %}
+    {% if field.label %}
+        {% set hint = field.help ? 'data-hint="' ~ field.help|tu|raw ~ '"': '' %}
+        <div class="form-label form-field hint--bottom" {{ hint }}>{{ field.label|tu|raw }}</div>
+    {% endif %}
+{% endblock %}
+{% block field %}
+    <div class="form-field {{ field.classes|default('') }} hidden">
+        <div class="form-data">
+            <textarea id="editSectionTextArea"
+                      class="editSectionTextArea"
+                      name="{{ (scope ~ field.name)|fieldName }}">{{ value|striptags }}</textarea>
+        </div>
+    </div>
+    <div class="code-html" style="border: none;">
+        <div id="editSection"></div>
+    </div>
+    <script class="code-js">
+        var editor = new tui.Editor({
+            el: document.querySelector('#editSection'),
+            initialEditType: 'wysiwyg',
+            previewStyle: 'vertical',
+            height: '300px',
+            initialValue: document.querySelector('#editSectionTextArea').value,
+            events: {
+                change: function () {
+                    document.querySelector('#editSectionTextArea').value = editor.getMarkdown();
+                }
+            }
+        });
+    </script>
+{% endblock %}
